@@ -1,0 +1,22 @@
+{
+  "changelogDate": "20230719100641",
+  "clientRootFolder": "receiptconstructordb",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "card",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "receiptconstructordb",
+  "microservicePath": "../receiptconstructor",
+  "name": "Card",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
