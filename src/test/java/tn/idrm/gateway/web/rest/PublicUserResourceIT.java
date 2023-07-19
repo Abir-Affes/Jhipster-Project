@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import tn.idrm.gateway.IntegrationTest;
-import tn.idrm.gateway.config.Constants;
 import tn.idrm.gateway.domain.User;
 import tn.idrm.gateway.repository.EntityManager;
 import tn.idrm.gateway.repository.UserRepository;

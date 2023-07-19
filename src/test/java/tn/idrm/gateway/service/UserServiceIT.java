@@ -12,13 +12,11 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import tech.jhipster.security.RandomUtil;
 import tn.idrm.gateway.IntegrationTest;
 import tn.idrm.gateway.config.Constants;
 import tn.idrm.gateway.domain.User;
 import tn.idrm.gateway.repository.UserRepository;
-import tn.idrm.gateway.service.dto.AdminUserDTO;
 
 /**
  * Integration tests for {@link UserService}.

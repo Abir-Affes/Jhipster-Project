@@ -23,7 +23,6 @@ import tn.idrm.gateway.security.AuthoritiesConstants;
 import tn.idrm.gateway.service.UserService;
 import tn.idrm.gateway.service.dto.AdminUserDTO;
 import tn.idrm.gateway.service.dto.PasswordChangeDTO;
-import tn.idrm.gateway.service.dto.UserDTO;
 import tn.idrm.gateway.web.rest.vm.KeyAndPasswordVM;
 import tn.idrm.gateway.web.rest.vm.ManagedUserVM;
 
