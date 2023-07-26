@@ -1,0 +1,85 @@
+{
+  "changelogDate": "20230720152552",
+  "clientRootFolder": "receiptconstructordb",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "receipt",
+  "fields": [
+    {
+      "fieldName": "receipt_no",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["unique", "max"],
+      "fieldValidateRulesMax": "9999"
+    },
+    {
+      "fieldName": "trace_no",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "999999"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double",
+      "fieldValidateRules": ["max"],
+      "fieldValidateRulesMax": "99999.99"
+    },
+    {
+      "fieldName": "transaction_type",
+      "fieldType": "trans_type",
+      "fieldValues": "UNKNOWN,GIROCARD,EUROELV,ELVOLV,CREDITCARD,REPORT,DIAGNOSIS,SYSTEM,OTHER"
+    },
+    {
+      "fieldName": "vu_no",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "receipt_type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ref_parameters",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "licensing_no",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pos_info",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "result",
+      "fieldType": "result",
+      "fieldValues": "SUCCESS,REJECTED"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "receiptconstructordb",
+  "microservicePath": "../receiptconstructor",
+  "name": "Receipt",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "terminal",
+      "relationshipName": "terminal_id",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "card",
+      "relationshipName": "card_id",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

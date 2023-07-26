@@ -1,0 +1,26 @@
+{
+  "changelogDate": "20230720165730",
+  "clientRootFolder": "receiptinterceptordb",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "intercept",
+  "fields": [
+    {
+      "fieldName": "receipt_code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "receiptinterceptordb",
+  "microservicePath": "../receiptinterceptor",
+  "name": "Intercept",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

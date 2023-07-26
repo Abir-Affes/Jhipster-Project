@@ -1,0 +1,22 @@
+{
+  "changelogDate": "20230720133550",
+  "clientRootFolder": "receiptconstructordb",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "terminal",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "receiptconstructordb",
+  "microservicePath": "../receiptconstructor",
+  "name": "Terminal",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

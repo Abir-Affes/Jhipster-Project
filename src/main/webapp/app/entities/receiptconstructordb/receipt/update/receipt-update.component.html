@@ -1,0 +1,219 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-receipt-heading"
+        data-cy="ReceiptCreateUpdateHeading"
+        jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.home.createOrEditLabel"
+      >
+        Create or edit a Receipt
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.receipt_no" for="field_receipt_no"
+            >Receipt No</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="receipt_no"
+            id="field_receipt_no"
+            data-cy="receipt_no"
+            formControlName="receipt_no"
+          />
+          <div *ngIf="editForm.get('receipt_no')!.invalid && (editForm.get('receipt_no')!.dirty || editForm.get('receipt_no')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('receipt_no')?.errors?.max" jhiTranslate="entity.validation.max">
+              This field cannot be more than 9999.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('receipt_no')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.trace_no" for="field_trace_no">Trace No</label>
+          <input type="number" class="form-control" name="trace_no" id="field_trace_no" data-cy="trace_no" formControlName="trace_no" />
+          <div *ngIf="editForm.get('trace_no')!.invalid && (editForm.get('trace_no')!.dirty || editForm.get('trace_no')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('trace_no')?.errors?.max" jhiTranslate="entity.validation.max">
+              This field cannot be more than 999999.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('trace_no')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.amount" for="field_amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+          <div *ngIf="editForm.get('amount')!.invalid && (editForm.get('amount')!.dirty || editForm.get('amount')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('amount')?.errors?.max" jhiTranslate="entity.validation.max">
+              This field cannot be more than 99999.99.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('amount')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.transaction_type" for="field_transaction_type"
+            >Transaction Type</label
+          >
+          <select
+            class="form-control"
+            name="transaction_type"
+            formControlName="transaction_type"
+            id="field_transaction_type"
+            data-cy="transaction_type"
+          >
+            <option [ngValue]="null"></option>
+            <option *ngFor="let trans_type of trans_typeValues" [value]="trans_type">{{ trans_type }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.vu_no" for="field_vu_no">Vu No</label>
+          <input type="number" class="form-control" name="vu_no" id="field_vu_no" data-cy="vu_no" formControlName="vu_no" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.receipt_type" for="field_receipt_type"
+            >Receipt Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="receipt_type"
+            id="field_receipt_type"
+            data-cy="receipt_type"
+            formControlName="receipt_type"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.ref_parameters" for="field_ref_parameters"
+            >Ref Parameters</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="ref_parameters"
+            id="field_ref_parameters"
+            data-cy="ref_parameters"
+            formControlName="ref_parameters"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.licensing_no" for="field_licensing_no"
+            >Licensing No</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="licensing_no"
+            id="field_licensing_no"
+            data-cy="licensing_no"
+            formControlName="licensing_no"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.pos_info" for="field_pos_info">Pos Info</label>
+          <input type="number" class="form-control" name="pos_info" id="field_pos_info" data-cy="pos_info" formControlName="pos_info" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.result" for="field_result">Result</label>
+          <select class="form-control" name="result" formControlName="result" id="field_result" data-cy="result">
+            <option [ngValue]="null"></option>
+            <option *ngFor="let result of resultValues" [value]="result">{{ result }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.date" for="field_date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.terminal_id" for="field_terminal_id"
+            >Terminal Id</label
+          >
+          <select
+            class="form-control"
+            id="field_terminal_id"
+            data-cy="terminal_id"
+            name="terminal_id"
+            formControlName="terminal_id"
+            [compareWith]="compareTerminal"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="terminalOption" *ngFor="let terminalOption of terminalsSharedCollection">{{ terminalOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.card_id" for="field_card_id">Card Id</label>
+          <select
+            class="form-control"
+            id="field_card_id"
+            data-cy="card_id"
+            name="card_id"
+            formControlName="card_id"
+            [compareWith]="compareCard"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="cardOption" *ngFor="let cardOption of cardsSharedCollection">{{ cardOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

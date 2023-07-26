@@ -1,16 +1,16 @@
 import { ICard, NewCard } from './card.model';
 
 export const sampleWithRequiredData: ICard = {
-  id: 8642,
+  id: 26995,
 };
 
 export const sampleWithPartialData: ICard = {
-  id: 7175,
+  id: 6751,
 };
 
 export const sampleWithFullData: ICard = {
-  id: 24628,
-  type: 'Southwest male stain',
+  id: 27659,
+  type: 'Frozen',
 };
 
 export const sampleWithNewData: NewCard = {

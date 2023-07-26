@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="receipt">
+      <h2 data-cy="receiptDetailsHeading"><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.detail.title">Receipt</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ receipt.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.receipt_no">Receipt No</span></dt>
+        <dd>
+          <span>{{ receipt.receipt_no }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.trace_no">Trace No</span></dt>
+        <dd>
+          <span>{{ receipt.trace_no }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.amount">Amount</span></dt>
+        <dd>
+          <span>{{ receipt.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.transaction_type">Transaction Type</span></dt>
+        <dd>
+          <span>{{ receipt.transaction_type }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.vu_no">Vu No</span></dt>
+        <dd>
+          <span>{{ receipt.vu_no }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.receipt_type">Receipt Type</span></dt>
+        <dd>
+          <span>{{ receipt.receipt_type }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.ref_parameters">Ref Parameters</span></dt>
+        <dd>
+          <span>{{ receipt.ref_parameters }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.licensing_no">Licensing No</span></dt>
+        <dd>
+          <span>{{ receipt.licensing_no }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.pos_info">Pos Info</span></dt>
+        <dd>
+          <span>{{ receipt.pos_info }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.result">Result</span></dt>
+        <dd>
+          <span>{{ receipt.result }}</span>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.date">Date</span></dt>
+        <dd>
+          <span>{{ receipt.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Terminal Id</span></dt>
+        <dd>
+          <div *ngIf="receipt.terminal_id">
+            <a [routerLink]="['/terminal', receipt.terminal_id.id, 'view']">{{ receipt.terminal_id.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="gatewaydbApp.receiptconstructordbReceipt.card_id">Card Id</span></dt>
+        <dd>
+          <div *ngIf="receipt.card_id">
+            <a [routerLink]="['/card', receipt.card_id.id, 'view']">{{ receipt.card_id.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/receipt', receipt.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

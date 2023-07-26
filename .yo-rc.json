@@ -16,7 +16,7 @@
     "enableHibernateCache": true,
     "enableSwaggerCodegen": false,
     "enableTranslation": false,
-    "entities": ["Card"],
+    "entities": ["Card", "Terminal", "Receipt", "Intercept"],
     "entitySuffix": "",
     "gradleEnterpriseHost": null,
     "jhiPrefix": "jhi",
